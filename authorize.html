@@ -1,6 +1,12 @@
+<div id="authPage">
 <center><h1 id="title"></h1></center>
 <center><p>You will still be able to manage your Files. by authorizing you will just give it permissions to manage Files</p></center>
 <center><button onclick="authorize()">Authorize</button></center>
+</div>
+<div id="authorizedPage" style="display: none">
+ <center><h1>Auth Succesfull</h1></center>
+ <center><p>You may now close the page if it did not close automatically</p></center>
+</div>
 <script>
 let params = new URL(location.href).searchParams;
 let hostname = params.get("host");
@@ -12,5 +18,8 @@ function authorize() {
  else {
   localStorage.setItem("authorized-hosts", localStorage.getItem("authorized-hosts") + "," + hostname)
  }
+ document.getElementById("authPage").style.display = "none"
+ document.getElementById("authorizedPage").style.display = "block"
+ window.close()
 }
 </script>
