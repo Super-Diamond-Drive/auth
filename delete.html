@@ -1,0 +1,23 @@
+<script>
+    window.addEventListener("message", function (e) {
+        var authorized = false
+        if(localStorage.getItem("authorized-hosts").contains(",")) {
+         var authorizedHosts = localStorage.getItem("authorized-hosts").split(",")
+         for (let i = 0; i < authorizedHosts.length; i++) {
+          if(parent.location.hostname == authorizedHosts[i]) {
+           authorized = true
+          }
+         }
+        }
+        else {
+         if(localStorage.getItem("authorized-hosts") == parent.location.hostname) {
+          authorized = true
+         }
+        }
+        if(!authorized) {
+            return
+        }
+        const data = JSON.parse(e.data)
+        localStorage.setItem(data.name, data.content)
+    })
+</script>
