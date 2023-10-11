@@ -1,0 +1,11 @@
+<script>
+    window.addEventListener("message", function (e) {
+        const hostname = e.data
+        var url = "https://super-diamond-drive.github.io/auth/authorize.html?host=" + hostname
+        var windowname = "Authorize " + hostname + " to manage Super Diamond Drive Files"
+    var href;
+    if (typeof(url) == 'string') href=url;
+    else href=url.href; 
+    return window.open(href, windowname, 'width=400,height=200,scrollbars=yes');
+    })
+</script>
