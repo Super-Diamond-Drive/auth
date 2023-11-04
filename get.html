@@ -1,16 +1,17 @@
 <script>
     window.addEventListener("message", function (e) {
         var authorized = false
+        var hostName = e.origin.split("://")[1]
         if(localStorage.getItem("authorized-hosts").contains(",")) {
          var authorizedHosts = localStorage.getItem("authorized-hosts").split(",")
          for (let i = 0; i < authorizedHosts.length; i++) {
-          if(parent.location.hostname == authorizedHosts[i]) {
+          if(hostName == authorizedHosts[i]) {
            authorized = true
           }
          }
         }
         else {
-         if(localStorage.getItem("authorized-hosts") == parent.location.hostname) {
+         if(localStorage.getItem("authorized-hosts") == hostName) {
           authorized = true
          }
         }
