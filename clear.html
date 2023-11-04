@@ -18,7 +18,7 @@
             return
         }
          for (let i = 0; i < localStorage.length; i++) {
-          if(localStorage.key(i) !== "authorized-hosts") {
+          if(localStorage.key(i) !== "authorized-hosts" && localStorage.key(i) !== "MemoryUsage") {
            localStorage.removeItem(localStorage.key(i))
           }
          }
