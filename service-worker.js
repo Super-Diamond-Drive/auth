@@ -1,13 +1,13 @@
 const CACHE_NAME = 'offline-api';
 const CACHE_DATA = [
-  '/service-worker.js',
-  '/load-service-worker.html',
-  '/create.html',
-  '/delete.html',
-  '/clear.html',
-  '/editor.js',
-  '/authMaker.html',
-  '/authorize.html',
+  'service-worker.js',
+  'load-service-worker.html',
+  'create.html',
+  'delete.html',
+  'clear.html',
+  'editor.js',
+  'authMaker.html',
+  'authorize.html',
 ];
 
 self.addEventListener('install', (event) => {
